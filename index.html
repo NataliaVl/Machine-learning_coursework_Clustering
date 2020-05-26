@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">    
+    
+    <title>Clustering</title>
+</head>
+<body class="fixed bg-blue-700 h-full w-full flex justify-center items-center p-24 font-mono">    
+    <div class="flex flex-col h-full">
+        <div class=" object-top flex justify-between mb-6">
+            <!--  ЛЕВЫЙ БЛОК-->
+            <h1 class="w-8/12 rounded  text-white font-bold text-6xl">Кластеризация текстовых документов</h1> 
+            <!--   ПРАВЫЙ БЛОК     -->
+            <form method="GET" action="/method" class="w-4/12 flex flex-col justify-around">
+                <div>
+                    <h1 class="text-white font-bold py-2">Выберите метод кластеризации</h1>
+                    <select class="w-full bg-wight font-bold py-2 px-4 rounded text-blue-700" name="method">
+                        <option value="kmeans">K-means</option>
+                        <option value="mbk">Mini batch K-means</option>
+                        <option value="agglo">Agglomerative Clustering</option>
+                        <option value="all_methods">K-means, Mini batch K-means, Agglomerative</option>
+                    </select>
+                </div>                
+                <button class="h-24 text-xl
+                bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" type="submit">произвести кластеризацию</button>
+            </form>
+        </div>
+        <div class="h-full w-full ">
+            <textarea class="w-full h-full rounded text-black">{name:}</textarea>
+        </div>
+    </div>
+
+
+</body>
+</html>
