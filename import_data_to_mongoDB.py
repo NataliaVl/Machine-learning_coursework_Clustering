@@ -4,6 +4,7 @@ import hashlib
 import os
 import connection
 from bs4 import BeautifulSoup
+import docx
 
 def parsing_doc(path):
     f = open(path, 'r', encoding="utf-8")
@@ -27,6 +28,19 @@ def parsing_html(path):
         doc = title + '\n' + soup.main.text
 
         import_doc(doc, title, description)
+
+
+def parsing_docx(path, title):
+    os.chdir(path)
+    doc1 = docx.Document(title)
+    title = doc1.paragraphs[0].text
+    description = doc1.paragraphs[4].text
+    text = []
+    for paragraph in doc1.paragraphs:
+        text.append(paragraph.text)
+    doc = '\n'.join(text)
+
+    import_doc(doc, title, description)
 
 
 def import_doc(doc, title, description):
@@ -53,3 +67,5 @@ for item in files:
         parsing_html(way)
     if doc_format == 'txt':
         parsing_doc(way)
+    if doc_format == 'docx':
+        parsing_docx(directory, item)
